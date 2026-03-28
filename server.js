@@ -87,6 +87,9 @@ const seedLocation = async () => {
     console.log("States & Cities Auto Inserted");
   }
 };
+app.get("/", (req, res) => {
+  res.send("Backend is running 🚀");
+});
 
 console.log("===== SERVER STARTING =====");
 app.get("/api/test", (req, res) => res.send("Server works"));
@@ -112,7 +115,6 @@ app.use("/api/users/profile/activity", require("./routes/activityroutes"));
 
 // Static uploads
 app.use("/uploads", express.static("uploads"));
-
 
 //Render port
 connectDB().then(async() => {
