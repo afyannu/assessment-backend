@@ -19,7 +19,11 @@ const cors = require("cors");
 
 app.use(
   cors({
-    origin: "http://localhost:3001",
+    origin: [
+      "http://localhost:3001",
+      "https://assessment1-ecomerce.netlify.app",
+      "https://assessment-ecom.vercel.app"
+    ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
