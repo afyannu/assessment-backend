@@ -1,10 +1,21 @@
 require("dotenv").config();
 const express = require("express");
-const cors = require("cors");
 const connectDB = require("./config/db");
 const path = require("path");
 const app = express();
-app.use(cors());
+const cors = require("cors");
+
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000",
+      "https://your-vercel-app.vercel.app"
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
+  })
+);
 app.use(express.json());
 const Role = require("./models/role");
 const State = require("./models/states");
